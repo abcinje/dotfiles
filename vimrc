@@ -4,6 +4,9 @@ set backspace=indent,eol,start
 " Blanks
 set list listchars=tab:»\ ,trail:·
 
+" Color Scheme
+colorscheme jellybeans
+
 " Compatibility
 set nocompatible
 

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-DIRPATH=$(realpath --relative-to=$HOME $(dirname $0))
-ln -fs $DIRPATH/vimrc $HOME/.vimrc
+CURR_DIRPATH=$(dirname $0)
+sudo cp $CURR_DIRPATH/colors/* /usr/share/vim/vim*/colors/
+
+HOME_DIRPATH=$(realpath --relative-to=$HOME $CURR_DIRPATH)
+ln -fs $HOME_DIRPATH/vimrc $HOME/.vimrc
