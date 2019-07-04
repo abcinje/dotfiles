@@ -5,7 +5,7 @@ set backspace=indent,eol,start
 set list listchars=tab:»\ ,trail:·
 
 " Color Scheme
-colorscheme jellybeans
+silent! colorscheme jellybeans
 
 " Compatibility
 set nocompatible
