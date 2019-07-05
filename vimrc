@@ -10,6 +10,20 @@ silent! colorscheme jellybeans
 " Compatibility
 set nocompatible
 
+" Highlight
+set cursorline
+
+if has("syntax")
+	syntax on
+endif
+
+if has("autocmd")
+	if v:version > 701
+		autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
+		autocmd Syntax * call matchadd('ErrorMsg', '\W\zs\(ERROR\|FATAL\)')
+	endif
+endif
+
 " Indentation
 set autoindent
 set cindent
@@ -26,8 +40,13 @@ set ruler
 set showcmd
 set title
 
+" Line Break
+set linebreak
+
 " Mouse
-set mouse=a
+if has("mouse")
+	set mouse=a
+endif
 
 " Search
 set hlsearch
@@ -35,8 +54,3 @@ set ignorecase
 set incsearch
 set nowrapscan
 set smartcase
-
-" Syntax Highlighting
-if has("syntax")
-	syntax on
-endif
