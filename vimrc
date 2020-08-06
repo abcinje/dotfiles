@@ -4,15 +4,10 @@ set backspace=indent,eol,start
 " Blanks
 set list listchars=tab:»\ ,trail:·
 
-" Color Scheme
-silent! colorscheme jellybeans
-
 " Compatibility
 set nocompatible
 
 " Highlight
-set cursorline
-
 if has("syntax")
 	syntax on
 endif
@@ -33,7 +28,6 @@ set smarttab
 set tabstop=8
 
 " Interface
-set background=dark
 set laststatus=2
 set number
 set ruler
@@ -42,11 +36,6 @@ set title
 
 " Line Break
 set linebreak
-
-" Mouse
-if has("mouse")
-	set mouse=a
-endif
 
 " Search
 set hlsearch
