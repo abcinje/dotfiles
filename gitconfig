@@ -1,3 +1,9 @@
 [user]
 	name = Injae Kang
 	email = abcinje@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[credential]
+	helper = cache
