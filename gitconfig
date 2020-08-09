@@ -7,3 +7,8 @@
 	default = simple
 [credential]
 	helper = cache
+[sendemail]
+	smtpuser = abcinje
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
