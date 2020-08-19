@@ -27,6 +27,10 @@ set smartindent
 set smarttab
 set tabstop=8
 
+if has("autocmd")
+	autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
+endif
+
 " Interface
 set laststatus=2
 set number
