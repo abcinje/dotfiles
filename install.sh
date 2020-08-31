@@ -9,11 +9,13 @@ function link_file {
     read action
     case $action in
       y|Y)
-        ln -sf $1 $2 ;;
-      *)
         ;;
+      *)
+        return
     esac
   fi
+
+  ln -sf $1 $2
 }
 
 CURR_DIRPATH=$(dirname $0)
