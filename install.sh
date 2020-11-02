@@ -18,8 +18,12 @@ function link_file {
   ln -sf $1 $2
 }
 
-CURR_DIRPATH=$(dirname $0)
-HOME_DIRPATH=$(realpath --relative-to=$HOME $CURR_DIRPATH)
+cd $(dirname $0)
+DOTFILES_ROOT=$(pwd)
 
-link_file $HOME_DIRPATH/vimrc $HOME/.vimrc
-link_file $HOME_DIRPATH/gitconfig $HOME/.gitconfig
+link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
+link_file $DOTFILES_ROOT/gitconfig $HOME/.gitconfig
+
+if [ -d $HOME/.oh-my-zsh ]; then
+	link_file $DOTFILES_ROOT/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
+fi
