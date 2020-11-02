@@ -23,6 +23,7 @@ DOTFILES_ROOT=$(pwd)
 
 link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
 link_file $DOTFILES_ROOT/gitconfig $HOME/.gitconfig
+link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
 
 if [ -d $HOME/.oh-my-zsh ]; then
 	link_file $DOTFILES_ROOT/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
