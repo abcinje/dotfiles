@@ -3,8 +3,8 @@
 function link_file {
   local src=$1 dst=$2
 
-  if [ -e $2 ]; then
-    echo "File $2 already exists!"
+  if [ -e $dst ]; then
+    echo "File $dst already exists!"
     echo -n "Do you want to overwrite? [y/n] "
     read action
     case $action in
@@ -15,7 +15,7 @@ function link_file {
     esac
   fi
 
-  ln -sf $1 $2
+  ln -sf $src $dst
 }
 
 cd $(dirname $0)
