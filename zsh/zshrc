@@ -1,0 +1,22 @@
+# Path to oh-my-zsh installation
+export ZSH="$HOME/.oh-my-zsh"
+
+# Shell theme
+ZSH_THEME="injae"
+
+# Plugins
+plugins=(
+  autojump
+  git
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# Environment variables
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+
+# Aliases
+alias bat="batcat"
