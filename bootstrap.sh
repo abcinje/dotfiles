@@ -21,10 +21,10 @@ function link_file {
 cd $(dirname $0)
 DOTFILES_ROOT=$(pwd)
 
-link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
-link_file $DOTFILES_ROOT/gitconfig $HOME/.gitconfig
-link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
+link_file $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
+link_file $DOTFILES_ROOT/git/gitconfig $HOME/.gitconfig
+link_file $DOTFILES_ROOT/tmux/tmux.conf $HOME/.tmux.conf
 
 if [ -d $HOME/.oh-my-zsh ]; then
-	link_file $DOTFILES_ROOT/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
+	link_file $DOTFILES_ROOT/zsh/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
 fi
