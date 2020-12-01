@@ -9,14 +9,14 @@ set nocompatible
 
 " Highlight
 if has("syntax")
-	syntax on
+  syntax on
 endif
 
 if has("autocmd")
-	if v:version > 701
-		autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
-		autocmd Syntax * call matchadd('ErrorMsg', '\W\zs\(ERROR\|FATAL\)')
-	endif
+  if v:version > 701
+    autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
+    autocmd Syntax * call matchadd('ErrorMsg', '\W\zs\(ERROR\|FATAL\)')
+  endif
 endif
 
 " Indentation
@@ -28,7 +28,7 @@ set smarttab
 set tabstop=8
 
 if has("autocmd")
-	autocmd Filetype python,rust setlocal expandtab shiftwidth=4 softtabstop=4
+  autocmd Filetype python,rust setlocal expandtab shiftwidth=4 softtabstop=4
 endif
 
 " Interface
