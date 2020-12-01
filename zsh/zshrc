@@ -13,6 +13,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Key bindings
+if [ $TERM = "xterm" ]; then
+  bindkey '^[[1~' beginning-of-line
+  bindkey '^[[4~' end-of-line
+fi
+
 # User configuration
 
 # Environment variables
