@@ -27,5 +27,5 @@ link_file $DOTFILES_ROOT/tmux/tmux.conf $HOME/.tmux.conf
 link_file $DOTFILES_ROOT/zsh/zshrc $HOME/.zshrc
 
 if [ -d $HOME/.oh-my-zsh ]; then
-	link_file $DOTFILES_ROOT/zsh/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
+  link_file $DOTFILES_ROOT/zsh/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
 fi
