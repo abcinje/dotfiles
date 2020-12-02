@@ -22,7 +22,7 @@ fi
 # User configuration
 
 # Environment variables
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
 
 # Aliases
 alias bat="batcat"
