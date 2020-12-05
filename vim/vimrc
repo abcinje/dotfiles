@@ -1,3 +1,17 @@
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+let g:airline_powerline_fonts = 0
+let g:airline_symbols_ascii = 1
+
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = '%l/%L, %v'
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
+
 " Backspace
 set backspace=indent,eol,start
 
@@ -19,15 +33,11 @@ if has("autocmd")
   endif
 endif
 
-" Indentation
-filetype indent plugin on
-set autoindent
-
 " Interface
 set laststatus=2
 set number
-set ruler
 set showcmd
+set noshowmode
 set title
 
 " Line Break
