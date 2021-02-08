@@ -36,7 +36,7 @@ endif
 if has("autocmd")
   if v:version > 701
     autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
-    autocmd Syntax * call matchadd('ErrorMsg', '\W\zs\(ERROR\|FATAL\)')
+    autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
   endif
 endif
 
