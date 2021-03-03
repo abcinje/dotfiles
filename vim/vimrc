@@ -59,6 +59,10 @@ set incsearch
 set nowrapscan
 set smartcase
 
+" Split
+set splitright
+set splitbelow
+
 " Key Mappings
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
