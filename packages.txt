@@ -1,0 +1,7 @@
+autojump
+bat
+curl
+git
+tmux
+vim
+zsh
