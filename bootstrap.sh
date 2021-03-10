@@ -19,13 +19,13 @@ function link_file {
 }
 
 cd $(dirname $0)
-DOTFILES_ROOT=$(pwd)
+dotfiles_root=$(pwd)
 
-link_file $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
-link_file $DOTFILES_ROOT/git/gitconfig $HOME/.gitconfig
-link_file $DOTFILES_ROOT/tmux/tmux.conf $HOME/.tmux.conf
-link_file $DOTFILES_ROOT/zsh/zshrc $HOME/.zshrc
+link_file $dotfiles_root/vim/vimrc $HOME/.vimrc
+link_file $dotfiles_root/git/gitconfig $HOME/.gitconfig
+link_file $dotfiles_root/tmux/tmux.conf $HOME/.tmux.conf
+link_file $dotfiles_root/zsh/zshrc $HOME/.zshrc
 
 if [ -d $HOME/.oh-my-zsh ]; then
-  link_file $DOTFILES_ROOT/zsh/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
+  link_file $dotfiles_root/zsh/injae.zsh-theme $HOME/.oh-my-zsh/custom/themes/injae.zsh-theme
 fi
