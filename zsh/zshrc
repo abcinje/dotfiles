@@ -22,10 +22,12 @@ if [ $TERM = "xterm" ]; then
   bindkey '^[[4~' end-of-line
 fi
 
-# User configuration
-
-# Environment variables
-export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
-
-# Aliases
-alias bat="batcat"
+# Bat
+case $(lsb_release -is) in
+  Debian|Ubuntu)
+    export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
+    alias bat="batcat"
+    ;;
+  *)
+    export MANPAGER="sh -c 'col -bx | bat -l man -p --pager=\"less -R\"'"
+esac
