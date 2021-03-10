@@ -8,7 +8,7 @@ function link_file {
   fi
 
   if [ -e $dst ]; then
-    echo "File $dst already exists!"
+    echo "File \"$dst\" already exists!"
     echo -n "Do you want to overwrite? [y/n] "
     read action
     if [ $action = "y" ] || [ $action = "Y" ]; then
