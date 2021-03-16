@@ -2,7 +2,7 @@ autojump
 bat
 curl
 git
-lsb-release
+lsb-core
 tmux
 vim
 zsh
