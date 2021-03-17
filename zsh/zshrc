@@ -15,8 +15,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Key Bindings
 if [ $TERM = "xterm" ]; then
-  bindkey '^[[1~' beginning-of-line
-  bindkey '^[[4~' end-of-line
+  bindkey "^[[1~" beginning-of-line
+  bindkey "^[[4~" end-of-line
 fi
 
 # Bat
