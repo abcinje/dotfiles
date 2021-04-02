@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # Zsh
 unsetopt hist_verify
 setopt rmstarsilent
+zstyle ":completion:*" insert-tab false
 
 # Key Bindings
 if [ $TERM = "xterm" ]; then
