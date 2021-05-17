@@ -41,7 +41,7 @@ endif
 
 " Interface
 set laststatus=2
-set number
+set relativenumber
 set showcmd
 set noshowmode
 set title
