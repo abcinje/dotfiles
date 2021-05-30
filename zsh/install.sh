@@ -6,6 +6,7 @@ if [ ! -d $omz ]; then
 fi
 
 link_file $dotfiles_root/zsh/zshrc $HOME/.zshrc
+link_file $dotfiles_root/zsh/apple.zsh-theme $omz/custom/themes/apple.zsh-theme
 link_file $dotfiles_root/zsh/injae.zsh-theme $omz/custom/themes/injae.zsh-theme
 
 if [ ! -d $omz/custom/plugins/zsh-syntax-highlighting ]; then

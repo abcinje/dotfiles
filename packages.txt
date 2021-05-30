@@ -1,8 +1,14 @@
+[Common]
 autojump
 bat
 curl
 git
-lsb-core
 tmux
 vim
 zsh
+
+[Darwin]
+homebrew
+
+[Linux]
+lsb-core
