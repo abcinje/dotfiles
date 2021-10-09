@@ -28,13 +28,15 @@ fi
 # Bat
 if [ $(uname) = "Darwin" ]; then
   export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  alias bat="bat --tabs=8"
 else
   case $(lsb_release -is) in
     Debian|Ubuntu)
       export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
-      alias bat="batcat"
+      alias bat="batcat --tabs=8"
       ;;
     *)
       export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
+      alias bat="bat --tabs=8"
   esac
 fi
