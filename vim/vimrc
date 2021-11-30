@@ -45,6 +45,8 @@ set relativenumber
 set showcmd
 set noshowmode
 set title
+set wildmenu
+set wildmode=longest,full
 
 " Line Break
 set linebreak
