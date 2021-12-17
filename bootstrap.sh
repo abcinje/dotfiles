@@ -6,11 +6,9 @@ dotfiles_root=$(pwd)
 source util.sh
 
 for dir in $(ls); do
-  if [ -d $dir ]; then
+  if [ -f $dir/install.sh ]; then
     echo "Configuring $dir..."
-    if [ -f $dir/install.sh ]; then
-      source $dir/install.sh
-    fi
+    source $dir/install.sh
   fi
 done
 echo "Done."
