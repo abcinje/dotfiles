@@ -6,7 +6,7 @@
 [push]
 	default = simple
 [credential]
-	helper = cache
+	helper = cache --timeout 3600
 [sendemail]
 	smtpuser = abcinje
 	smtpserver = smtp.gmail.com
