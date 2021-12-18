@@ -10,12 +10,12 @@ if [ $# -gt 0 ]; then
   for dir in $@; do
     if [ ! -d $dir ]; then
       error=true
-      echo "Invalid argument: $dir"
+      eecho "Invalid argument: $dir"
     fi
   done
 
   if $error; then
-    echo "Aborting."
+    eecho "Aborting."
     exit 1
   fi
 
