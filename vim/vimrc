@@ -66,9 +66,13 @@ set splitright
 set splitbelow
 
 " Key Mappings
+let mapleader = ","
+
+imap jk <Esc>
+
+nmap <Leader><Space> :nohlsearch<Cr>
+
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
-
-imap jk <Esc>
