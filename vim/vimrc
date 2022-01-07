@@ -24,6 +24,13 @@ set backspace=indent,eol,start
 " Blanks
 set list listchars=tab:»\ ,trail:·
 
+" Color
+if &term =~ "256color"
+  if has("termguicolors")
+    set termguicolors
+  endif
+endif
+
 " Cursor
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
