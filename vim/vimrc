@@ -64,6 +64,10 @@ set smartcase
 set splitright
 set splitbelow
 
+" Swap
+call mkdir($HOME . "/.vim/swap", "p", 0775)
+set directory=$HOME/.vim/swap
+
 " Key Mappings
 let mapleader = ","
 
