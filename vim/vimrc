@@ -24,6 +24,9 @@ set backspace=indent,eol,start
 " Blanks
 set list listchars=tab:»\ ,trail:·
 
+" Cursor
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " Compatibility
 set nocompatible
 
