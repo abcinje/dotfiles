@@ -32,12 +32,8 @@ if has("syntax")
   syntax on
 endif
 
-if has("autocmd")
-  if v:version > 701
-    autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
-    autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
-  endif
-endif
+autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
+autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
 
 " Interface
 set laststatus=2
