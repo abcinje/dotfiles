@@ -81,6 +81,9 @@ set splitbelow
 call mkdir($HOME . "/.vim/swap", "p", 0775)
 set directory=$HOME/.vim/swap
 
+" Tags
+set tags=./tags,tags;
+
 " Key Mappings
 let mapleader = ","
 
