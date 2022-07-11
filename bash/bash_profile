@@ -1,0 +1,4 @@
+if [ "$(which zsh)" ]; then
+  export SHELL="$(which zsh)"
+  exec "$(which zsh)" -l
+fi
