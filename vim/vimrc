@@ -89,9 +89,9 @@ let mapleader = ","
 
 imap jk <Esc>
 
-nmap <Leader><Space> :nohlsearch<Cr>
+nmap <Leader><Space> :nohlsearch<CR>
 
-nmap <C-h> <C-W>h
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-l> <C-W>l
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
