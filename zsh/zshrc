@@ -40,3 +40,6 @@ else
       alias bat="bat --tabs=8"
   esac
 fi
+
+# Vim
+alias view="vim -R"
