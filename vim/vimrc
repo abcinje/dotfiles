@@ -82,8 +82,9 @@ set splitbelow
 " Swap
 if empty(glob($HOME . "/.vim/swap"))
   call mkdir($HOME . "/.vim/swap", "p")
-  set directory=$HOME/.vim/swap
-elseif isdirectory($HOME . "/.vim/swap")
+endif
+
+if isdirectory($HOME . "/.vim/swap")
   set directory=$HOME/.vim/swap
 endif
 
