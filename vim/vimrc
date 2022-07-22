@@ -78,8 +78,12 @@ set splitright
 set splitbelow
 
 " Swap
-call mkdir($HOME . "/.vim/swap", "p", 0775)
-set directory=$HOME/.vim/swap
+if empty(glob($HOME . "/.vim/swap"))
+  call mkdir($HOME . "/.vim/swap", "p")
+  set directory=$HOME/.vim/swap
+elseif isdirectory($HOME . "/.vim/swap")
+  set directory=$HOME/.vim/swap
+endif
 
 " Tags
 set tags=./tags,tags;
