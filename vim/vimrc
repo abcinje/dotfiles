@@ -54,6 +54,8 @@ endif
 autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
 autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
 
+highlight Comment cterm=italic gui=italic
+
 " Interface
 set laststatus=2
 set relativenumber
