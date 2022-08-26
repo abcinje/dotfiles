@@ -1,0 +1,17 @@
+common = [
+  "autojump",
+  "bat",
+  "curl",
+  "git",
+  "tmux",
+  "vim",
+  "zsh",
+]
+
+linux = [
+  "lsb-core",
+]
+
+darwin = [
+  "homebrew",
+]
