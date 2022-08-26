@@ -59,7 +59,6 @@ highlight Comment cterm=italic gui=italic
 " Interface
 set laststatus=2
 set relativenumber
-set showcmd
 set noshowmode
 set title
 set wildmenu
