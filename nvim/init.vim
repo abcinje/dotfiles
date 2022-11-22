@@ -1,10 +1,10 @@
 " Plugins
 
 call plug#begin()
-Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'preservim/nerdtree'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
