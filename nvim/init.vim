@@ -1,6 +1,9 @@
 " Plugins
 
 call plug#begin()
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
@@ -16,8 +19,6 @@ autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
 
 highlight Comment cterm=italic gui=italic
 
-let mapleader = ","
-
 set ignorecase
 set list listchars=tab:»\ ,trail:·
 set noshowcmd
@@ -30,6 +31,8 @@ set splitright
 
 
 " Key Mappings
+
+let mapleader = ","
 
 imap jk <Esc>
 nmap <C-H> <C-W>h
