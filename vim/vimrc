@@ -1,4 +1,5 @@
 " Plugins
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   if executable('curl')
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -8,91 +9,46 @@ endif
 
 if filereadable(glob('~/.vim/autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'preservim/nerdtree'
+    Plug 'tpope/vim-surround'
+    Plug 'vim-airline/vim-airline'
   call plug#end()
 
-  let g:airline_theme = 'minimalist'
   let g:airline_powerline_fonts = 1
 endif
 
-" Backspace
-set backspace=indent,eol,start
 
-" Blanks
-set list listchars=tab:»\ ,trail:·
 
-" Color
-if &term =~ "256color"
-  set background=dark
-  if has("termguicolors")
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-  endif
-endif
+" General Configurations
 
-" Cursor
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Compatibility
-set nocompatible
-
-" Highlight
-if has("syntax")
-  syntax on
-endif
-
 autocmd Syntax * call matchadd('Debug', '\W\zs\(DEBUG\)')
 autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
 
 highlight Comment cterm=italic gui=italic
 
-" Interface
-set laststatus=2
-set relativenumber
-set noshowmode
-set title
-set wildmenu
-set wildmode=longest,full
-
-" Line Break
-set linebreak
-
-" Paste
-set pastetoggle=<F2>
-
-" Search
 set hlsearch
 set ignorecase
 set incsearch
+set list listchars=tab:»\ ,trail:·
+set noshowcmd
 set nowrapscan
-set smartcase
-
-" Split
-set splitright
+set pastetoggle=<F2>
+set relativenumber
 set splitbelow
+set splitright
 
-" Swap
-if empty(glob($HOME . "/.vim/swap"))
-  call mkdir($HOME . "/.vim/swap", "p")
-endif
 
-if isdirectory($HOME . "/.vim/swap")
-  set directory=$HOME/.vim/swap
-endif
-
-" Tags
-set tags=./tags,tags;
 
 " Key Mappings
+
 let mapleader = ","
 
 imap jk <Esc>
-
-nmap <Leader><Space> :nohlsearch<CR>
 
 nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+nmap <Leader><Space> :nohlsearch<CR>

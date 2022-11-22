@@ -19,7 +19,9 @@ autocmd Syntax * call matchadd('Error', '\W\zs\(ERROR\|FATAL\)')
 
 highlight Comment cterm=italic gui=italic
 
+set hlsearch
 set ignorecase
+set incsearch
 set list listchars=tab:»\ ,trail:·
 set noshowcmd
 set nowrapscan
@@ -35,6 +37,7 @@ set splitright
 let mapleader = ","
 
 imap jk <Esc>
+
 nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
