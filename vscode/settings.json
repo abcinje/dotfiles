@@ -1,0 +1,39 @@
+{
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "boundary",
+
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.showcmd": false,
+    "vim.wrapscan": false,
+
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<C-H>"],
+            "after": ["<C-W>", "h"]
+        },
+        {
+            "before": ["<C-J>"],
+            "after": ["<C-W>", "j"]
+        },
+        {
+            "before": ["<C-K>"],
+            "after": ["<C-W>", "k"]
+        },
+        {
+            "before": ["<C-L>"],
+            "after": ["<C-W>", "l"]
+        },
+        {
+            "before": ["<Leader>", "<Space>"],
+            "commands": [":nohlsearch"]
+        }
+    ]
+}
