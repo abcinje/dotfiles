@@ -1,8 +1,8 @@
 " Plugins
 
-let path = stdpath('data') . '/site/autoload/plug.vim'
+let plug_path = stdpath('data') . '/site/autoload/plug.vim'
 
-if filereadable(glob(path))
+if filereadable(glob(plug_path))
   call plug#begin()
     Plug 'easymotion/vim-easymotion'
     Plug 'preservim/nerdtree'
