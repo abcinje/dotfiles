@@ -2,18 +2,7 @@
 
 let path = stdpath('data') . '/site/autoload/plug.vim'
 
-if empty(glob(path))
-  if executable('curl')
-    silent execute '!curl -fLo ' . path . ' --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  endif
-endif
-
 if filereadable(glob(path))
-  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync
-  \| endif
-
   call plug#begin()
     Plug 'easymotion/vim-easymotion'
     Plug 'preservim/nerdtree'
