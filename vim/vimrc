@@ -10,6 +10,10 @@ if empty(glob(path))
 endif
 
 if filereadable(glob(path))
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync
+  \| endif
+
   call plug#begin()
     Plug 'easymotion/vim-easymotion'
     Plug 'preservim/nerdtree'
