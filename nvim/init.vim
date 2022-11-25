@@ -35,6 +35,7 @@ set pastetoggle=<F2>
 set relativenumber
 set splitbelow
 set splitright
+set tags=tags;
 
 
 
