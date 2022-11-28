@@ -30,6 +30,7 @@ set ignorecase
 set incsearch
 set list listchars=tab:»\ ,trail:·
 set noshowcmd
+set noshowmode
 set nowrapscan
 set pastetoggle=<F2>
 set relativenumber
@@ -49,4 +50,5 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+nmap <C-N> :NERDTreeToggle<CR>
 nmap <Leader><Space> :nohlsearch<CR>
