@@ -8,7 +8,11 @@ common = [
   "zsh",
 ]
 
-linux = [
+fedora = [
+  "redhat-lsb-core",
+]
+
+ubuntu = [
   "lsb-core",
 ]
 
