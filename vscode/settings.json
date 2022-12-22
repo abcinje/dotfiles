@@ -1,7 +1,10 @@
 {
+    "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "boundary",
     "editor.wordWrap": "on",
+
+    "terminal.integrated.scrollback": 10000,
 
     "vim.easymotion": true,
     "vim.hlsearch": true,
