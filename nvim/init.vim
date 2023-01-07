@@ -44,11 +44,11 @@ set tags=tags;
 
 let mapleader = ","
 
-imap jk <Esc>
+inoremap jk <Esc>
 
-nmap <C-H> <C-W>h
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-L> <C-W>l
-nmap <C-N> :NERDTreeToggle<CR>
-nmap <Leader><Space> :nohlsearch<CR>
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <Leader><Space> :nohlsearch<CR>

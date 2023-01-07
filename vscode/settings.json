@@ -12,13 +12,13 @@
     "vim.wrapscan": false,
 
     "vim.leader": ",",
-    "vim.insertModeKeyBindings": [
+    "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": ["j", "k"],
             "after": ["<Esc>"]
         }
     ],
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["<C-H>"],
             "after": ["<C-W>", "h"]
