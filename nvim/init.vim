@@ -44,6 +44,13 @@ set tags=tags;
 
 let mapleader = ","
 
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+
 inoremap jk <Esc>
 
 nnoremap <C-H> <C-W>h
