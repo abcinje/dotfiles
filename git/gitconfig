@@ -12,3 +12,6 @@
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
+[oh-my-zsh]
+	hide-dirty = 1
+	hide-status = 1
