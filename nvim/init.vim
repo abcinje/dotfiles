@@ -5,7 +5,6 @@ let plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if filereadable(glob(plug_path))
   call plug#begin()
   Plug 'easymotion/vim-easymotion'
-  Plug 'preservim/nerdtree'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -57,5 +56,4 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <Leader><Space> :nohlsearch<CR>
