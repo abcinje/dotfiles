@@ -4,6 +4,8 @@ vim.opt.title = false
 vim.opt.wrap = true
 vim.opt.wrapscan = false
 
+vim.keymap.set("i", "jk", "<Esc>")
+
 lvim.plugins = {
   {
     "phaazon/hop.nvim",
