@@ -25,7 +25,7 @@ lvim.plugins = {
         hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
       end)
       vim.keymap.set("n", "T", function()
-        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = -1 })
+        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
       end)
       vim.keymap.set("n", "s", function()
         hop.hint_words({ direction = directions.AFTER_CURSOR })
