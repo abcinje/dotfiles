@@ -33,4 +33,24 @@ lvim.plugins = {
       end)
     end,
   },
+
+  {
+    "tpope/vim-fugitive",
+    cmd = {
+      "G",
+      "Git",
+      "Gedit",
+      "Gdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "Glgrep",
+      "GMove",
+      "GRename",
+      "GDelete",
+      "GRemove",
+      "GBrowse",
+    },
+    ft = { "fugitive" },
+  },
 }
