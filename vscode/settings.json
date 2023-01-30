@@ -11,7 +11,7 @@
     "vim.showcmd": false,
     "vim.wrapscan": false,
 
-    "vim.leader": ",",
+    "vim.leader": "<Space>",
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": ["j", "k"],
@@ -36,7 +36,7 @@
             "after": ["<C-W>", "l"]
         },
         {
-            "before": ["<Leader>", "<Space>"],
+            "before": ["<Leader>", "h"],
             "commands": [":nohlsearch"]
         }
     ]
