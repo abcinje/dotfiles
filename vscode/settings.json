@@ -9,6 +9,7 @@
     "vim.easymotion": true,
     "vim.hlsearch": true,
     "vim.showcmd": false,
+    "vim.useSystemClipboard": true,
     "vim.wrapscan": false,
 
     "vim.leader": "<Space>",
@@ -19,6 +20,30 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["f"],
+            "after": ["<Leader>", "<Leader>", "f"]
+        },
+        {
+            "before": ["F"],
+            "after": ["<Leader>", "<Leader>", "F"]
+        },
+        {
+            "before": ["t"],
+            "after": ["<Leader>", "<Leader>", "t"]
+        },
+        {
+            "before": ["T"],
+            "after": ["<Leader>", "<Leader>", "T"]
+        },
+        {
+            "before": ["s"],
+            "after": ["<Leader>", "<Leader>", "w"]
+        },
+        {
+            "before": ["S"],
+            "after": ["<Leader>", "<Leader>", "b"]
+        },
         {
             "before": ["<C-H>"],
             "after": ["<C-W>", "h"]
