@@ -1,5 +1,4 @@
 {
-    "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "boundary",
     "editor.wordWrap": "on",
