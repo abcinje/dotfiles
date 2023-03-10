@@ -6,16 +6,6 @@ vim.opt.wrapscan = false
 
 vim.keymap.set("i", "jk", "<Esc>")
 
-lvim.autocommands = {
-  {
-    "BufEnter",
-    {
-      pattern = { "*.c", "*.h", "*.cc", "*.hh", "*.cpp", "*.hpp" },
-      command = "setlocal noexpandtab shiftwidth=8 tabstop=8",
-    },
-  },
-}
-
 lvim.plugins = {
   {
     "folke/todo-comments.nvim",
