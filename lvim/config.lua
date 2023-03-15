@@ -16,14 +16,8 @@ lvim.plugins = {
   },
 
   {
-    "ggandor/leap.nvim",
+    "ggandor/lightspeed.nvim",
     event = { "BufNewFile", "BufRead" },
-    config = function()
-      local leap = require("leap")
-
-      leap.opts.case_sensitive = true
-      leap.add_default_mappings()
-    end,
   },
 
   {
