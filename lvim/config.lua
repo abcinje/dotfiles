@@ -8,6 +8,11 @@ vim.keymap.set("i", "jk", "<Esc>")
 
 lvim.plugins = {
   {
+    "f-person/git-blame.nvim",
+    event = { "BufNewFile", "BufRead" },
+  },
+
+  {
     "folke/todo-comments.nvim",
     event = { "BufNewFile", "BufRead" },
     config = function()
