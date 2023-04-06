@@ -8,6 +8,13 @@ vim.keymap.set("i", "jk", "<Esc>")
 
 lvim.plugins = {
   {
+    "ethanholz/nvim-lastplace",
+    config = function()
+      require("nvim-lastplace").setup()
+    end,
+  },
+
+  {
     "f-person/git-blame.nvim",
     event = { "BufNewFile", "BufRead" },
   },
