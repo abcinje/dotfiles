@@ -1,6 +1,6 @@
 vim.opt.linebreak = true
 vim.opt.list = true
-vim.opt.listchars = { trail = '·' }
+vim.opt.listchars:append({ trail = '·' })
 vim.opt.relativenumber = true
 vim.opt.title = false
 vim.opt.wrap = true
