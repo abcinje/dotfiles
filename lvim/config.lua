@@ -8,6 +8,8 @@ vim.opt.wrapscan = false
 
 vim.keymap.set("i", "jk", "<Esc>")
 
+lvim.builtin.indentlines.active = false
+
 lvim.plugins = {
   {
     "ethanholz/nvim-lastplace",
