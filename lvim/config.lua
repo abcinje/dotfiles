@@ -1,3 +1,4 @@
+vim.opt.background = "light"
 vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars:append({ tab = '» ', trail = '·' })
@@ -42,4 +43,11 @@ lvim.plugins = {
       require("neoscroll").setup()
     end,
   },
+
+  {
+    "mcchrish/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+  },
 }
+
+lvim.colorscheme = "zenwritten"
