@@ -1,3 +1,4 @@
+-- Options
 vim.opt.background = "light"
 vim.opt.linebreak = true
 vim.opt.list = true
@@ -7,10 +8,13 @@ vim.opt.title = false
 vim.opt.wrap = true
 vim.opt.wrapscan = false
 
+-- Keymap
 vim.keymap.set("i", "jk", "<Esc>")
 
+-- Core
 lvim.builtin.indentlines.active = false
 
+-- Plugins
 lvim.plugins = {
   {
     "ethanholz/nvim-lastplace",
@@ -47,7 +51,8 @@ lvim.plugins = {
   {
     "mcchrish/zenbones.nvim",
     dependencies = "rktjmp/lush.nvim",
+    config = function()
+      lvim.colorscheme = "zenwritten"
+    end,
   },
 }
-
-lvim.colorscheme = "zenwritten"
