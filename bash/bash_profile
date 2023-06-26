@@ -1,4 +1,5 @@
-if [ "$(which zsh)" ]; then
-  export SHELL="$(which zsh)"
-  exec "$(which zsh)" -l
+zsh="$(which zsh)"
+if [ -x "$zsh" ]; then
+  export SHELL="$zsh"
+  exec "$zsh" -l
 fi
