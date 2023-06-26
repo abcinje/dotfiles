@@ -1,10 +1,6 @@
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
-if [ $(uname) = "Darwin" ]; then
-  ZSH_THEME="apple"
-else
-  ZSH_THEME="injae"
-fi
+ZSH_THEME="injae"
 
 plugins=(
   autojump
