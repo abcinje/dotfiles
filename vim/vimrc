@@ -1,0 +1,16 @@
+set hlsearch
+set incsearch
+set mouse=a
+set number
+set relativenumber
+set splitbelow
+set splitright
+set nowrapscan
+
+inoremap jk <Esc>
+nnoremap : ;
+nnoremap ; :
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
