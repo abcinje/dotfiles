@@ -20,6 +20,14 @@
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "before": [":"],
+            "after": [";"]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
             "before": ["f"],
             "after": ["<Leader>", "<Leader>", "f"]
         },
