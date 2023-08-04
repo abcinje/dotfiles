@@ -5,6 +5,8 @@
 
     "terminal.integrated.scrollback": 10000,
 
+    "workbench.colorTheme": "Zenbones Zenwritten Light",
+
     "vim.easymotion": true,
     "vim.hlsearch": true,
     "vim.showcmd": false,
