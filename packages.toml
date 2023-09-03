@@ -3,6 +3,7 @@ common = [
   "bat",
   "curl",
   "git",
+  "ripgrep",
   "tmux",
   "vim",
   "zsh",
