@@ -4,7 +4,6 @@
     "editor.wordWrap": "on",
 
     "git.allowForcePush": true,
-    "git.confirmForcePush": false,
 
     "terminal.integrated.scrollback": 10000,
 
