@@ -1,6 +1,8 @@
 {
+    "editor.insertSpaces": false,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 8,
     "editor.wordWrap": "on",
 
     "git.allowForcePush": true,
