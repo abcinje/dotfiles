@@ -39,3 +39,7 @@ fi
 
 # Vim
 alias view="vim -R"
+
+# NeoVim
+export PATH="$PATH:/opt/nvim-linux64/bin"
+alias nv="nvim"
