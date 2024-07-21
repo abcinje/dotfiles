@@ -41,5 +41,9 @@ fi
 alias view="vim -R"
 
 # NeoVim
-export PATH="$PATH:/opt/nvim-linux64/bin"
+if [ $(uname) = "Darwin" ]; then
+  export PATH="$PATH:/opt/nvim-macos-arm64/bin"
+else
+  export PATH="$PATH:/opt/nvim-linux64/bin"
+fi
 alias nv="nvim"

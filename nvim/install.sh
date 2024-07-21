@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
+if [ $(uname) = "Darwin" ]; then
+  nvim="nvim-macos-arm64"
+else
+  nvim="nvim-linux64"
+fi
+
 sudo -s -- <<EOF
 cd /opt
-rm -r nvim-linux64
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-tar -xf nvim-linux64.tar.gz
-rm nvim-linux64.tar.gz
+rm -r $nvim
+wget https://github.com/neovim/neovim/releases/download/stable/$nvim.tar.gz
+tar -xf $nvim.tar.gz
+rm $nvim.tar.gz
 EOF
 
 mkdir -p $HOME/.config/nvim
