@@ -1,4 +1,6 @@
 {
+    "diffEditor.ignoreTrimWhitespace": false,
+
     "editor.insertSpaces": false,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "boundary",
