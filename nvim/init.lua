@@ -108,7 +108,17 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
       require("mason-lspconfig").setup({ automatic_installation = true })
-      require("lspconfig").lua_ls.setup({})
+      require("lspconfig").lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {
+                "vim",
+              },
+            },
+          },
+        },
+      })
       require("lspconfig").rust_analyzer.setup({})
     end,
   },
