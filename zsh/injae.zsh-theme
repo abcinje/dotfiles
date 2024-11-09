@@ -1,5 +1,20 @@
-PROMPT='%{$fg[green]%}%D{[%T]}%{$reset_color%} '
-PROMPT+='%B%n%b:%{$fg[blue]%}%B%1~%b%{$reset_color%} '
+function injae_preexec {
+  cmd_start="$EPOCHREALTIME"
+}
+
+function injae_precmd {
+  if [[ $cmd_start ]]; then
+    cmd_end="$EPOCHREALTIME"
+    printf "Elapsed %.3f seconds\n" $((cmd_end-cmd_start))
+    unset cmd_start
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook preexec injae_preexec
+add-zsh-hook precmd injae_precmd
+
+PROMPT='%B%n%b:%{$fg[blue]%}%B%1~%b%{$reset_color%} '
 PROMPT+='$(git_prompt_info)'
 PROMPT+='%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%} '
 RPROMPT='%(?..%{$fg[red]%}$? ←%{$reset_color%})'
