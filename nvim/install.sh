@@ -3,7 +3,7 @@
 if [ $(uname) = "Darwin" ]; then
   nvim="nvim-macos-arm64"
 else
-  nvim="nvim-linux64"
+  nvim="nvim-linux-x86_64"
 fi
 
 sudo -s -- <<EOF
