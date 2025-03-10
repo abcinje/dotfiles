@@ -14,8 +14,7 @@ autoload -U add-zsh-hook
 add-zsh-hook preexec injae_preexec
 add-zsh-hook precmd injae_precmd
 
-# PROMPT='%{$fg[green]%}%B%n%b%{$reset_color%}:'
-PROMPT=''
+PROMPT='%{$fg[green]%}%B%m%b%{$reset_color%}:'
 PROMPT+='%{$fg[blue]%}%B%~%b%{$reset_color%}'
 PROMPT+='$(git_prompt_info)'
 PROMPT+='%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%} '
