@@ -48,6 +48,9 @@ else
 fi
 alias nv="nvim"
 
+# dmesg
+alias dmesg="sudo dmesg"
+
 # SysRq
 function sysrq {
   sudo sh -c "echo $1 > /proc/sysrq-trigger"
