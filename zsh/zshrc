@@ -47,3 +47,8 @@ else
   export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 fi
 alias nv="nvim"
+
+# SysRq
+function sysrq {
+  sudo sh -c "echo $1 > /proc/sysrq-trigger"
+}
