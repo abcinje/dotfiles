@@ -57,6 +57,10 @@ require("lazy").setup({
   },
 
   {
+    "github/copilot.vim",
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     config = function()
       vim.opt.signcolumn = "yes"
