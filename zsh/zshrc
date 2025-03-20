@@ -51,6 +51,17 @@ alias nv="nvim"
 # dmesg
 alias dmesg="sudo dmesg"
 
+# SSH
+function sshloop {
+  while true; do
+    ssh "$@"
+    if [ $? -eq 0 ]; then
+      break
+    fi
+    sleep 2
+  done
+}
+
 # SysRq
 function sysrq {
   sudo sh -c "echo $1 > /proc/sysrq-trigger"
