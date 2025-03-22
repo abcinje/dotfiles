@@ -1,4 +1,5 @@
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
+vim.opt.fillchars:append({ eob = " " })
 vim.opt.ignorecase = true
 vim.opt.linebreak = true
 vim.opt.list = true
@@ -64,7 +65,18 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     config = function()
       vim.opt.signcolumn = "yes"
-      require("gitsigns").setup()
+      local gitsigns = require("gitsigns")
+      gitsigns.setup({
+        on_attach = function(bufnr)
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+          map("n", "<Leader>hs", gitsigns.stage_hunk)
+          map("n", "<Leader>hr", gitsigns.reset_hunk)
+        end
+      })
     end,
   },
 
