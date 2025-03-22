@@ -81,14 +81,6 @@ require("lazy").setup({
   },
 
   {
-    "kdheepak/lazygit.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = function()
-      vim.keymap.set("n", "<Leader>g", "<Cmd>LazyGit<CR>")
-    end,
-  },
-
-  {
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
