@@ -75,6 +75,12 @@ require("lazy").setup({
           end
           map("n", "<Leader>hs", gitsigns.stage_hunk)
           map("n", "<Leader>hr", gitsigns.reset_hunk)
+          map("v", "<Leader>hs", function()
+            gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+          end)
+          map("v", "<Leader>hr", function()
+            gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+          end)
         end
       })
     end,
