@@ -1,5 +1,22 @@
+vim.opt.wrapscan = false
+
+vim.keymap.set("n", ":", ";")
+vim.keymap.set("n", ";", ":")
+
 if vim.g.vscode then
-  -- VSCode extension
+  local vscode = require("vscode")
+  vim.keymap.set("n", "<C-H>", function()
+    vscode.action("workbench.action.navigateLeft")
+  end)
+  vim.keymap.set("n", "<C-J>", function()
+    vscode.action("workbench.action.navigateDown")
+  end)
+  vim.keymap.set("n", "<C-K>", function()
+    vscode.action("workbench.action.navigateUp")
+  end)
+  vim.keymap.set("n", "<C-L>", function()
+    vscode.action("workbench.action.navigateRight")
+  end)
 else
   vim.opt.clipboard = { "unnamed", "unnamedplus" }
   vim.opt.fillchars:append({ eob = " " })
@@ -15,13 +32,10 @@ else
   vim.opt.splitbelow = true
   vim.opt.splitright = true
   vim.opt.swapfile = false
-  vim.opt.wrapscan = false
 
   vim.g.mapleader = " "
 
   vim.keymap.set("i", "jk", "<Esc>")
-  vim.keymap.set("n", ":", ";")
-  vim.keymap.set("n", ";", ":")
   vim.keymap.set("n", "gj", "j")
   vim.keymap.set("n", "gk", "k")
   vim.keymap.set("n", "j", "gj")
