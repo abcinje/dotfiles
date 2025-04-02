@@ -1,4 +1,14 @@
 {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 8,
+    "editor.wordWrap": "on",
+    "git.allowForcePush": true,
+    "terminal.integrated.scrollback": 10000,
+    "workbench.colorTheme": "Zenbones Zenwritten Light",
+
     "vscode-neovim.compositeKeys": {
         "jk": {
             "command": "vscode-neovim.escape",
