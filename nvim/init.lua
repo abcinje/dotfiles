@@ -206,14 +206,6 @@ else
     },
 
     {
-      "akinsho/toggleterm.nvim",
-      opts = {
-        open_mapping = "<C-\\>",
-        shade_terminals = false,
-      },
-    },
-
-    {
       "mcchrish/zenbones.nvim",
       dependencies = "rktjmp/lush.nvim",
       config = function()
