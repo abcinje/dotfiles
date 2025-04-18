@@ -1,11 +1,11 @@
 common = [
-  "autojump",
   "bat",
   "curl",
   "git",
   "ripgrep",
   "tmux",
   "vim",
+  "zoxide",
   "zsh",
 ]
 
