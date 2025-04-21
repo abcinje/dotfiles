@@ -4,6 +4,7 @@ ZSH_THEME="injae"
 
 plugins=(
   git
+  zoxide
   zsh-syntax-highlighting
 )
 
@@ -18,11 +19,6 @@ zstyle ":completion:*" insert-tab false
 if [ $TERM = "xterm" ]; then
   bindkey "^[[1~" beginning-of-line
   bindkey "^[[4~" end-of-line
-fi
-
-# zoxide
-if type zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
 fi
 
 # Bat
