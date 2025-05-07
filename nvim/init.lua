@@ -33,6 +33,7 @@ else
   vim.opt.splitright = true
   vim.opt.swapfile = false
 
+  vim.g.clipboard = "osc52"
   vim.g.mapleader = " "
 
   vim.keymap.set("i", "jk", "<Esc>")
