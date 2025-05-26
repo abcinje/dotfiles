@@ -7,7 +7,7 @@
     "editor.wordWrap": "on",
     "git.allowForcePush": true,
     "terminal.integrated.scrollback": 10000,
-    "workbench.colorTheme": "Zenbones Zenwritten Light",
+    "workbench.colorTheme": "Bluloco Dark",
 
     "vscode-neovim.compositeKeys": {
         "jk": {

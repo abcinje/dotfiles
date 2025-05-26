@@ -67,6 +67,16 @@ else
     },
 
     {
+      "uloco/bluloco.nvim",
+      dependencies = "rktjmp/lush.nvim",
+      config = function()
+        vim.opt.termguicolors = true
+        vim.cmd.colorscheme("bluloco")
+      end,
+      priority = 1000,
+    },
+
+    {
       "akinsho/bufferline.nvim",
       dependencies = "nvim-tree/nvim-web-devicons",
       config = function()
@@ -206,6 +216,7 @@ else
       end,
     },
 
+    --[[
     {
       "mcchrish/zenbones.nvim",
       dependencies = "rktjmp/lush.nvim",
@@ -216,5 +227,6 @@ else
       end,
       priority = 1000,
     },
+    --]]
   })
 end
