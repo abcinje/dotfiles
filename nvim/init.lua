@@ -101,12 +101,12 @@ else
               opts.buffer = bufnr
               vim.keymap.set(mode, l, r, opts)
             end
-            map("n", "<Leader>hs", gitsigns.stage_hunk)
-            map("n", "<Leader>hr", gitsigns.reset_hunk)
-            map("v", "<Leader>hs", function()
+            map("n", "<Leader>gs", gitsigns.stage_hunk)
+            map("n", "<Leader>gr", gitsigns.reset_hunk)
+            map("v", "<Leader>gs", function()
               gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
             end)
-            map("v", "<Leader>hr", function()
+            map("v", "<Leader>gr", function()
               gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
             end)
           end
