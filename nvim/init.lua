@@ -1,4 +1,4 @@
-vim.opt.wrapscan = false
+vim.o.wrapscan = false
 
 vim.keymap.set("n", ":", ";")
 vim.keymap.set("n", ";", ":")
@@ -18,20 +18,21 @@ if vim.g.vscode then
     vscode.action("workbench.action.navigateRight")
   end)
 else
+  vim.o.ignorecase = true
+  vim.o.linebreak = true
+  vim.o.list = true
+  vim.o.relativenumber = true
+  vim.o.showcmd = false
+  vim.o.showmode = false
+  vim.o.smartcase = true
+  vim.o.splitbelow = true
+  vim.o.splitright = true
+  vim.o.swapfile = false
+
   vim.opt.clipboard = { "unnamed", "unnamedplus" }
   vim.opt.fillchars:append({ eob = " " })
-  vim.opt.ignorecase = true
-  vim.opt.linebreak = true
-  vim.opt.list = true
   vim.opt.listchars:append({ tab = "» ", trail = "·" })
-  vim.opt.relativenumber = true
   vim.opt.shortmess:append("I")
-  vim.opt.showcmd = false
-  vim.opt.showmode = false
-  vim.opt.smartcase = true
-  vim.opt.splitbelow = true
-  vim.opt.splitright = true
-  vim.opt.swapfile = false
 
   vim.g.clipboard = "osc52"
   vim.g.mapleader = " "
@@ -70,7 +71,7 @@ else
       "uloco/bluloco.nvim",
       dependencies = "rktjmp/lush.nvim",
       config = function()
-        vim.opt.termguicolors = true
+        vim.o.termguicolors = true
         vim.cmd.colorscheme("bluloco")
       end,
       priority = 1000,
@@ -80,7 +81,7 @@ else
       "akinsho/bufferline.nvim",
       dependencies = "nvim-tree/nvim-web-devicons",
       config = function()
-        vim.opt.termguicolors = true
+        vim.o.termguicolors = true
         require("bufferline").setup({ options = { show_buffer_icons = false } })
       end,
     },
@@ -92,7 +93,7 @@ else
     {
       "lewis6991/gitsigns.nvim",
       config = function()
-        vim.opt.signcolumn = "yes"
+        vim.o.signcolumn = "yes"
         local gitsigns = require("gitsigns")
         gitsigns.setup({
           on_attach = function(bufnr)
@@ -185,7 +186,7 @@ else
       config = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
-        vim.opt.termguicolors = true
+        vim.o.termguicolors = true
         require("nvim-tree").setup()
         vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>")
       end,
@@ -221,8 +222,8 @@ else
       "mcchrish/zenbones.nvim",
       dependencies = "rktjmp/lush.nvim",
       config = function()
-        vim.opt.background = "light"
-        vim.opt.termguicolors = true
+        vim.o.background = "light"
+        vim.o.termguicolors = true
         vim.cmd.colorscheme("zenwritten")
       end,
       priority = 1000,
