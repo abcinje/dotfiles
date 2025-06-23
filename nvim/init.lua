@@ -34,6 +34,7 @@ else
   vim.opt.listchars:append({ tab = "» ", trail = "·" })
   vim.opt.shortmess:append("I")
 
+  vim.g.clipboard = "osc52"
   vim.g.mapleader = " "
 
   vim.keymap.set("i", "jk", "<Esc>")
