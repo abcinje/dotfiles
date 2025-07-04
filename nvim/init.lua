@@ -48,6 +48,18 @@ else
   vim.keymap.set("n", "<C-L>", "<C-W>l")
   vim.keymap.set("n", "<Leader>h", "<Cmd>nohlsearch<CR>")
 
+  vim.lsp.config("lua_ls", {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = {
+            "vim",
+          },
+        },
+      },
+    },
+  })
+
   -- Bootstrap lazy.nvim
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -155,21 +167,9 @@ else
       {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
-        config = function()
-          require("mason-lspconfig").setup({ automatic_installation = true })
-          require("lspconfig").lua_ls.setup({
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = {
-                    "vim",
-                  },
-                },
-              },
-            },
-          })
-          require("lspconfig").rust_analyzer.setup({})
-        end,
+        opts = {
+          ensure_installed = { "lua_ls", "rust_analyzer" },
+        },
       },
 
       {
