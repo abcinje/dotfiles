@@ -50,6 +50,22 @@ else
   vim.keymap.set("n", "<Leader>h", "<Cmd>nohlsearch<CR>")
 
   vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+      vim.bo.expandtab = false
+      vim.bo.tabstop = 8
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "java", "python", "rust" },
+    callback = function()
+      vim.bo.expandtab = true
+      vim.bo.tabstop = 4
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "sh" },
     callback = function()
       vim.bo.expandtab = true
