@@ -50,7 +50,7 @@ else
   vim.keymap.set("n", "<Leader>h", "<Cmd>nohlsearch<CR>")
 
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = "lua",
+    pattern = { "lua", "sh" },
     callback = function()
       vim.bo.expandtab = true
       vim.bo.tabstop = 2
