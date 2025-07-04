@@ -22,6 +22,7 @@ else
   vim.o.linebreak = true
   vim.o.list = true
   vim.o.relativenumber = true
+  vim.o.shiftwidth = 0
   vim.o.showcmd = false
   vim.o.showmode = false
   vim.o.smartcase = true
@@ -47,6 +48,14 @@ else
   vim.keymap.set("n", "<C-K>", "<C-W>k")
   vim.keymap.set("n", "<C-L>", "<C-W>l")
   vim.keymap.set("n", "<Leader>h", "<Cmd>nohlsearch<CR>")
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "lua",
+    callback = function()
+      vim.bo.expandtab = true
+      vim.bo.tabstop = 2
+    end,
+  })
 
   vim.lsp.config("lua_ls", {
     settings = {
