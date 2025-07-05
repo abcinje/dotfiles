@@ -133,6 +133,14 @@ require("lazy").setup({
     },
 
     {
+      "oskarrrrrrr/symbols.nvim",
+      config = function()
+        require("symbols").setup()
+        vim.keymap.set("n", "<Leader>s", "<Cmd>SymbolsToggle<CR>")
+      end
+    },
+
+    {
       "nvim-telescope/telescope.nvim",
       dependencies = "nvim-lua/plenary.nvim",
       config = function()
