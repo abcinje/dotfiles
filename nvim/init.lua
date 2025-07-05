@@ -29,11 +29,13 @@ else
   vim.o.splitbelow = true
   vim.o.splitright = true
   vim.o.swapfile = false
+  vim.o.whichwrap = "bs<>[]"
 
   vim.opt.clipboard = { "unnamed", "unnamedplus" }
   vim.opt.fillchars:append({ eob = " " })
   vim.opt.listchars:append({ tab = "» ", trail = "·" })
   vim.opt.shortmess:append("I")
+  vim.opt.spelllang:append("cjk")
 
   vim.g.clipboard = "osc52"
   vim.g.mapleader = " "
