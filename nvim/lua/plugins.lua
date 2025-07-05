@@ -26,10 +26,6 @@ require("lazy").setup({
     {
       "uloco/bluloco.nvim",
       dependencies = "rktjmp/lush.nvim",
-      config = function()
-        vim.o.termguicolors = true
-        vim.cmd.colorscheme("bluloco")
-      end,
       priority = 1000,
     },
 
@@ -161,20 +157,16 @@ require("lazy").setup({
       end,
     },
 
-    --[[
     {
       "mcchrish/zenbones.nvim",
       dependencies = "rktjmp/lush.nvim",
-      config = function()
-        vim.o.background = "light"
-        vim.o.termguicolors = true
-        vim.cmd.colorscheme("zenwritten")
-      end,
       priority = 1000,
     },
-    --]]
   },
 
   -- Check for plugin updates
   checker = { enabled = true },
 })
+
+vim.o.termguicolors = true
+vim.cmd.colorscheme("bluloco")
