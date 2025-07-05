@@ -137,13 +137,13 @@ require("lazy").setup({
       dependencies = "nvim-lua/plenary.nvim",
       config = function()
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<Leader>f", function()
+        vim.keymap.set("n", "<Leader>ff", function()
           local opts = { previewer = false }
           if not pcall(builtin.git_files, opts) then
             builtin.find_files(opts)
           end
         end)
-        vim.keymap.set("n", "<Leader>t", function()
+        vim.keymap.set("n", "<Leader>fg", function()
           local git_root = vim.fn.system("git rev-parse --show-toplevel")
           if vim.v.shell_error == 0 then
             builtin.live_grep({ cwd = vim.trim(git_root) })
@@ -151,7 +151,7 @@ require("lazy").setup({
             builtin.live_grep()
           end
         end)
-        vim.keymap.set("n", "<Leader>r", function()
+        vim.keymap.set("n", "<Leader>fr", function()
           builtin.oldfiles({ previewer = false })
         end)
       end,
