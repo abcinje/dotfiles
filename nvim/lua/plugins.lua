@@ -171,9 +171,6 @@ require("lazy").setup({
       priority = 1000,
     },
   },
-
-  -- Check for plugin updates
-  checker = { enabled = true },
 })
 
 vim.o.termguicolors = true
