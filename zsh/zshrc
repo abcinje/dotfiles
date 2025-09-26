@@ -51,6 +51,24 @@ alias nv="nvim"
 # dmesg
 alias dmesg="sudo dmesg"
 
+# OOB
+function oob {
+  if [ $# -ne 2 ]; then
+    echo "Usage: oob <gateway> <oob_ip>"
+    return 1
+  fi
+
+  local session="oob"
+  local proxy="ssh -D localhost:8888 -N $1 -v"
+  local chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --proxy-server=socks5://localhost:8888 https://$2"
+
+  tmux new-session -d -s "$session"
+  tmux send-keys -t "${session}:0.0" "$proxy" C-m
+  tmux split-window -t "${session}:0"
+  tmux send-keys -t "${session}:0.1" "$chrome" C-m
+  tmux attach -t "$session"
+}
+
 # SSH
 function sshloop {
   while true; do
