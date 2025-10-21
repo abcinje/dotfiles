@@ -133,10 +133,10 @@ require("lazy").setup({
     },
 
     {
-      "oskarrrrrrr/symbols.nvim",
+      "hedyhli/outline.nvim",
       config = function()
-        require("symbols").setup()
-        vim.keymap.set("n", "<Leader>s", "<Cmd>SymbolsToggle<CR>")
+        require("outline").setup()
+        vim.keymap.set("n", "<Leader>o", "<Cmd>Outline<CR>")
       end
     },
 
