@@ -78,8 +78,8 @@ require("lazy").setup({
       "nvim-lualine/lualine.nvim",
       opts = {
         options = {
-          component_separators = "│",
-          section_separators = "",
+          --component_separators = "│",
+          --section_separators = "",
           globalstatus = true,
         },
         sections = {
@@ -141,6 +141,11 @@ require("lazy").setup({
     },
 
     {
+      "Th3Whit3Wolf/space-nvim",
+      priority = 1000,
+    },
+
+    {
       "nvim-telescope/telescope.nvim",
       dependencies = "nvim-lua/plenary.nvim",
       config = function()
@@ -174,7 +179,6 @@ require("lazy").setup({
 })
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme("bluloco")
+vim.cmd.colorscheme("space-nvim")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
