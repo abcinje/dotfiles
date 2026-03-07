@@ -8,7 +8,9 @@ source util.sh
 if [ $# -gt 0 ]; then
   error=false
   for dir in $@; do
-    if [ ! -d $dir ]; then
+    if [ -d $dir ]; then
+      list="$list $(basename $(realpath $dir))"
+    else
       error=true
       eecho "Invalid argument: $dir"
     fi
@@ -18,8 +20,6 @@ if [ $# -gt 0 ]; then
     eecho "Aborting."
     exit 1
   fi
-
-  list=$@
 else
   for file in $(ls); do
     if [ -d $file ]; then
