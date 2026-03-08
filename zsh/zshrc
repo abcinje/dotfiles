@@ -96,19 +96,18 @@ function sysrq {
 
 # Bat
 if [ $(uname) = "Darwin" ]; then
-  export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  alias bat="bat --tabs=8"
+  batname="bat"
 else
   case $(lsb_release -is) in
     Debian|Ubuntu)
-      export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
-      alias bat="batcat --tabs=8"
+      batname="batcat"
       ;;
     *)
-      export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
-      alias bat="bat --tabs=8"
+      batname="bat"
   esac
 fi
+export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | $batname -l man -p'"
+alias bat="$batname --tabs=8"
 
 # Cargo
 if [ -d "$HOME/.cargo" ]; then
