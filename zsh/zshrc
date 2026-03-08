@@ -37,6 +37,9 @@ else
   esac
 fi
 
+# Claude
+export PATH="$HOME/.local/bin:$PATH"
+
 # Vim
 alias view="vim -R"
 
@@ -89,3 +92,6 @@ function sshloop {
 function sysrq {
   sudo sh -c "echo $1 > /proc/sysrq-trigger"
 }
+
+# Cargo
+. "$HOME/.cargo/env"
