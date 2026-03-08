@@ -49,10 +49,13 @@ require("lazy").setup({
     },
 
     {
-      "ggandor/leap.nvim",
-      config = function()
-        require("leap").add_default_mappings()
-      end,
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      ---@type Flash.Config
+      opts = {},
+      keys = {
+        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      },
     },
 
     {
