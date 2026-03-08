@@ -18,16 +18,97 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    {
-      "numToStr/Comment.nvim",
-      config = true,
-    },
+    -- =========================================================
+    -- Colorscheme
+    -- =========================================================
 
     {
       "uloco/bluloco.nvim",
       dependencies = "rktjmp/lush.nvim",
       priority = 1000,
     },
+
+    {
+      "Th3Whit3Wolf/space-nvim",
+      priority = 1000,
+    },
+
+    {
+      "mcchrish/zenbones.nvim",
+      dependencies = "rktjmp/lush.nvim",
+      priority = 1000,
+    },
+
+    -- =========================================================
+    -- Editing
+    -- =========================================================
+
+    {
+      "numToStr/Comment.nvim",
+      config = true,
+    },
+
+    {
+      "ggandor/leap.nvim",
+      config = function()
+        require("leap").add_default_mappings()
+      end,
+    },
+
+    {
+      "windwp/nvim-autopairs",
+      config = true,
+    },
+
+    {
+      "ethanholz/nvim-lastplace",
+      config = true,
+    },
+
+    -- =========================================================
+    -- Finder
+    -- =========================================================
+
+    {
+      "nvim-tree/nvim-tree.lua",
+      dependencies = "nvim-tree/nvim-web-devicons",
+      config = function()
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+        vim.o.termguicolors = true
+        require("nvim-tree").setup()
+        vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>")
+      end,
+    },
+
+    {
+      "nvim-telescope/telescope.nvim",
+      dependencies = "nvim-lua/plenary.nvim",
+      config = function()
+        local builtin = require("telescope.builtin")
+        vim.keymap.set("n", "<Leader>ff", function()
+          local opts = { previewer = false }
+          if not pcall(builtin.git_files, opts) then
+            builtin.find_files(opts)
+          end
+        end)
+        vim.keymap.set("n", "<Leader>fg", function()
+          local git_root = vim.fn.system("git rev-parse --show-toplevel")
+          if vim.v.shell_error == 0 then
+            builtin.live_grep({ cwd = vim.trim(git_root) })
+          else
+            builtin.live_grep()
+          end
+        end)
+        vim.keymap.set("n", "<Leader>fr", function()
+          builtin.oldfiles({ previewer = false })
+        end)
+      end,
+    },
+
+    -- =========================================================
+    -- Interface
+    -- =========================================================
 
     {
       "akinsho/bufferline.nvim",
@@ -37,6 +118,58 @@ require("lazy").setup({
         require("bufferline").setup({ options = { show_buffer_icons = false } })
       end,
     },
+
+    {
+      "nvim-lualine/lualine.nvim",
+      opts = {
+        options = {
+          --component_separators = "│",
+          --section_separators = "",
+          globalstatus = true,
+        },
+        sections = {
+          lualine_c = {
+            {
+              "filename",
+              path = 3,
+            },
+          },
+        },
+      },
+    },
+
+    {
+      "dstein64/nvim-scrollview",
+    },
+
+    -- =========================================================
+    -- Languages
+    -- =========================================================
+
+    {
+      "williamboman/mason.nvim",
+      config = true,
+    },
+
+    {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+      opts = {
+        ensure_installed = { "clangd", "lua_ls", "rust_analyzer" },
+      },
+    },
+
+    {
+      "hedyhli/outline.nvim",
+      config = function()
+        require("outline").setup()
+        vim.keymap.set("n", "<Leader>o", "<Cmd>Outline<CR>")
+      end
+    },
+
+    -- =========================================================
+    -- Misc
+    -- =========================================================
 
     {
       "github/copilot.vim",
@@ -65,115 +198,6 @@ require("lazy").setup({
           end
         })
       end,
-    },
-
-    {
-      "ggandor/leap.nvim",
-      config = function()
-        require("leap").add_default_mappings()
-      end,
-    },
-
-    {
-      "nvim-lualine/lualine.nvim",
-      opts = {
-        options = {
-          --component_separators = "│",
-          --section_separators = "",
-          globalstatus = true,
-        },
-        sections = {
-          lualine_c = {
-            {
-              "filename",
-              path = 3,
-            },
-          },
-        },
-      },
-    },
-
-    {
-      "williamboman/mason.nvim",
-      config = true,
-    },
-
-    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
-      opts = {
-        ensure_installed = { "clangd", "lua_ls", "rust_analyzer" },
-      },
-    },
-
-    {
-      "windwp/nvim-autopairs",
-      config = true,
-    },
-
-    {
-      "ethanholz/nvim-lastplace",
-      config = true,
-    },
-
-    {
-      "dstein64/nvim-scrollview",
-    },
-
-    {
-      "nvim-tree/nvim-tree.lua",
-      dependencies = "nvim-tree/nvim-web-devicons",
-      config = function()
-        vim.g.loaded_netrw = 1
-        vim.g.loaded_netrwPlugin = 1
-        vim.o.termguicolors = true
-        require("nvim-tree").setup()
-        vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>")
-      end,
-    },
-
-    {
-      "hedyhli/outline.nvim",
-      config = function()
-        require("outline").setup()
-        vim.keymap.set("n", "<Leader>o", "<Cmd>Outline<CR>")
-      end
-    },
-
-    {
-      "Th3Whit3Wolf/space-nvim",
-      priority = 1000,
-    },
-
-    {
-      "nvim-telescope/telescope.nvim",
-      dependencies = "nvim-lua/plenary.nvim",
-      config = function()
-        local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<Leader>ff", function()
-          local opts = { previewer = false }
-          if not pcall(builtin.git_files, opts) then
-            builtin.find_files(opts)
-          end
-        end)
-        vim.keymap.set("n", "<Leader>fg", function()
-          local git_root = vim.fn.system("git rev-parse --show-toplevel")
-          if vim.v.shell_error == 0 then
-            builtin.live_grep({ cwd = vim.trim(git_root) })
-          else
-            builtin.live_grep()
-          end
-        end)
-        vim.keymap.set("n", "<Leader>fr", function()
-          builtin.oldfiles({ previewer = false })
-        end)
-      end,
-    },
-
-    {
-      "mcchrish/zenbones.nvim",
-      dependencies = "rktjmp/lush.nvim",
-      priority = 1000,
     },
   },
 })
