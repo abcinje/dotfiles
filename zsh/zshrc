@@ -111,7 +111,9 @@ else
 fi
 
 # Cargo
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ]; then
+  . "$HOME/.cargo/env"
+fi
 
 # Claude
 export PATH="$HOME/.local/bin:$PATH"
