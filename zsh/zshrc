@@ -1,3 +1,7 @@
+# ==============================================================
+# Shell
+# ==============================================================
+
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="injae"
@@ -21,24 +25,9 @@ if [ $TERM = "xterm" ]; then
   bindkey "^[[4~" end-of-line
 fi
 
-# Bat
-if [ $(uname) = "Darwin" ]; then
-  export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  alias bat="bat --tabs=8"
-else
-  case $(lsb_release -is) in
-    Debian|Ubuntu)
-      export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
-      alias bat="batcat --tabs=8"
-      ;;
-    *)
-      export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
-      alias bat="bat --tabs=8"
-  esac
-fi
-
-# Claude
-export PATH="$HOME/.local/bin:$PATH"
+# ==============================================================
+# Editor
+# ==============================================================
 
 # Vim
 alias view="vim -R"
@@ -51,8 +40,9 @@ else
 fi
 alias nv="nvim"
 
-# dmesg
-alias dmesg="sudo dmesg"
+# ==============================================================
+# Remote
+# ==============================================================
 
 # OOB
 function oob {
@@ -88,10 +78,45 @@ function sshloop {
   done
 }
 
+# ==============================================================
+# System
+# ==============================================================
+
+# dmesg
+alias dmesg="sudo dmesg"
+
 # SysRq
 function sysrq {
   sudo sh -c "echo $1 > /proc/sysrq-trigger"
 }
 
+# ==============================================================
+# Misc
+# ==============================================================
+
+# Bat
+if [ $(uname) = "Darwin" ]; then
+  export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  alias bat="bat --tabs=8"
+else
+  case $(lsb_release -is) in
+    Debian|Ubuntu)
+      export MANPAGER="sh -c 'col -bx | batcat -l man -p --pager=\"less -R\"'"
+      alias bat="batcat --tabs=8"
+      ;;
+    *)
+      export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | bat -l man -p'"
+      alias bat="bat --tabs=8"
+  esac
+fi
+
 # Cargo
 . "$HOME/.cargo/env"
+
+# Claude
+export PATH="$HOME/.local/bin:$PATH"
+
+# ==============================================================
+# Temp
+# ==============================================================
+
