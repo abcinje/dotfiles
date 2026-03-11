@@ -75,6 +75,13 @@ else
     end,
   })
 
+  vim.api.nvim_set_hl(0, "@lsp.type.comment.c", { link = "Normal" })
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+      vim.api.nvim_set_hl(0, "@lsp.type.comment.c", { link = "Normal" })
+    end,
+  })
+
   vim.lsp.config("lua_ls", {
     settings = {
       Lua = {
