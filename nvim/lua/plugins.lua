@@ -208,4 +208,5 @@ require("lazy").setup({
 vim.o.termguicolors = true
 vim.cmd.colorscheme("space-nvim")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+local statusline = vim.api.nvim_get_hl(0, { name = "StatusLine" })
+vim.api.nvim_set_hl(0, "BufferLineFill", { bg = statusline.bg, fg = statusline.fg })
