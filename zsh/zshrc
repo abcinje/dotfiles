@@ -44,20 +44,30 @@ alias nv="nvim"
 # Remote
 # ==============================================================
 
-# OOB
-function oob {
-  if [ $# -ne 2 ]; then
-    echo "Usage: oob <gateway> <oob_ip>"
+# BMC
+function bmc {
+  if [ $# -ne 1 ]; then
+    echo "Usage: bmc <host>"
     return 1
   fi
 
-  local session="oob"
-  local proxy="ssh -D localhost:8888 -N $1 -v"
+  local target="$1.bmc"
+  local config proxyjump hostname
+  config=$(ssh -G "$target" 2>/dev/null)
+  proxyjump=$(echo "$config" | awk '$1 == "proxyjump" { print $2; exit }')
+  hostname=$(echo "$config" | awk '$1 == "hostname" { print $2; exit }')
+  if [ -z "$proxyjump" ] || [ -z "$hostname" ] || [ "$hostname" = "$target" ]; then
+    echo "bmc: no entry for '$target' in ~/.ssh/config"
+    return 1
+  fi
+
+  local session="bmc"
+  local proxy="ssh -D localhost:8888 -N $proxyjump -v"
   local chrome
   if [ $(uname) = "Darwin" ]; then
-    chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --proxy-server=socks5://localhost:8888 https://$2"
+    chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --proxy-server=socks5://localhost:8888 https://$hostname"
   else
-    chrome="/usr/bin/google-chrome --proxy-server=socks5://localhost:8888 https://$2"
+    chrome="/usr/bin/google-chrome --proxy-server=socks5://localhost:8888 https://$hostname"
   fi
 
   tmux new-session -d -s "$session"
