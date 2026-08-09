@@ -65,9 +65,9 @@ function bmc {
   local proxy="ssh -D localhost:8888 -N $proxyjump -v"
   local chrome
   if [ $(uname) = "Darwin" ]; then
-    chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --proxy-server=socks5://localhost:8888 https://$hostname"
+    chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"
   else
-    chrome="/usr/bin/google-chrome --proxy-server=socks5://localhost:8888 https://$hostname"
+    chrome="/usr/bin/google-chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"
   fi
 
   tmux new-session -d -s "$session"
