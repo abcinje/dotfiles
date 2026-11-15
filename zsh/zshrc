@@ -101,16 +101,11 @@ function sysrq {
 # ==============================================================
 
 # Bat
-if [ "$(uname)" = "Darwin" ]; then
-  batname="bat"
+# Debian/Ubuntu ship bat as "batcat"
+if (( $+commands[batcat] )); then
+  batname="batcat"
 else
-  case "$(lsb_release -is)" in
-    Debian|Ubuntu)
-      batname="batcat"
-      ;;
-    *)
-      batname="bat"
-  esac
+  batname="bat"
 fi
 export MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | $batname -l man -p'"
 alias bat="$batname --tabs=8"

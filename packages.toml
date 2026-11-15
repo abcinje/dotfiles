@@ -9,14 +9,6 @@ common = [
   "zsh",
 ]
 
-fedora = [
-  "redhat-lsb-core",
-]
-
-ubuntu = [
-  "lsb-core",
-]
-
 darwin = [
   "homebrew",
 ]
