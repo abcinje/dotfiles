@@ -1,1 +1,1 @@
-link_file $dotfiles_root/vim/vimrc $HOME/.vimrc
+link_file "$dotfiles_root/vim/vimrc" "$HOME/.vimrc"

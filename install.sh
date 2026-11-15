@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-cd $(dirname $0)
+cd "$(dirname "$0")" || exit 1
 dotfiles_root=$(pwd)
 
 source util.sh
 
+list=()
 if [ $# -gt 0 ]; then
   error=false
-  for dir in $@; do
-    if [ -d $dir ]; then
-      list="$list $(basename $(realpath $dir))"
+  for dir in "$@"; do
+    if [ -d "$dir" ]; then
+      list+=("$(basename "$(realpath "$dir")")")
     else
       error=true
       eecho "Invalid argument: $dir"
@@ -21,16 +22,14 @@ if [ $# -gt 0 ]; then
     exit 1
   fi
 else
-  for file in $(ls); do
-    if [ -d $file ]; then
-      list="$list $file"
-    fi
+  for dir in */; do
+    list+=("${dir%/}")
   done
 fi
 
-for dir in $list; do
+for dir in "${list[@]}"; do
   echo "Configuring $dir..."
-  source $dir/install.sh
+  (source "$dir/install.sh")
 done
 
 echo "Done."

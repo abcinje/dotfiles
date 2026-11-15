@@ -12,7 +12,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # Zsh
 unsetopt hist_verify
@@ -20,7 +20,7 @@ setopt rmstarsilent
 zstyle ":completion:*" insert-tab false
 
 # Key Bindings
-if [ $TERM = "xterm" ]; then
+if [ "$TERM" = "xterm" ]; then
   bindkey "^[[1~" beginning-of-line
   bindkey "^[[4~" end-of-line
 fi
@@ -33,7 +33,7 @@ fi
 alias view="vim -R"
 
 # NeoVim
-if [ $(uname) = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   export PATH="$PATH:/opt/nvim-macos-arm64/bin"
 else
   export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
@@ -64,7 +64,7 @@ function bmc {
   local session="bmc"
   local proxy="ssh -D localhost:8888 -N $proxyjump -v"
   local chrome
-  if [ $(uname) = "Darwin" ]; then
+  if [ "$(uname)" = "Darwin" ]; then
     chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"
   else
     chrome="/usr/bin/google-chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"
@@ -79,11 +79,7 @@ function bmc {
 
 # SSH
 function sshloop {
-  while true; do
-    ssh "$@"
-    if [ $? -eq 0 ]; then
-      break
-    fi
+  until ssh "$@"; do
     sleep 2
   done
 }
@@ -97,7 +93,7 @@ alias dmesg="sudo dmesg"
 
 # SysRq
 function sysrq {
-  sudo sh -c "echo $1 > /proc/sysrq-trigger"
+  echo "$1" | sudo tee /proc/sysrq-trigger >/dev/null
 }
 
 # ==============================================================
@@ -105,10 +101,10 @@ function sysrq {
 # ==============================================================
 
 # Bat
-if [ $(uname) = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   batname="bat"
 else
-  case $(lsb_release -is) in
+  case "$(lsb_release -is)" in
     Debian|Ubuntu)
       batname="batcat"
       ;;
