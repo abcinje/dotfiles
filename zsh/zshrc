@@ -36,7 +36,7 @@ fi
 alias view="vim -R"
 
 # NeoVim
-if [ "$(uname)" = "Darwin" ]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="$PATH:/opt/nvim-macos-arm64/bin"
 else
   export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
@@ -67,7 +67,7 @@ function bmc {
   local session="bmc"
   local proxy="ssh -D localhost:8888 -N $proxyjump -v"
   local chrome
-  if [ "$(uname)" = "Darwin" ]; then
+  if [[ "$OSTYPE" == darwin* ]]; then
     chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"
   else
     chrome="/usr/bin/google-chrome --user-data-dir=/tmp/chrome-proxy --proxy-server=socks5://localhost:8888 https://$hostname"

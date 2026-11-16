@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$(uname)" = "Darwin" ]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   nvim="nvim-macos-arm64"
 else
   nvim="nvim-linux-x86_64"
