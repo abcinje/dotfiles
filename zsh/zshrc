@@ -36,11 +36,6 @@ fi
 alias view="vim -R"
 
 # NeoVim
-if [[ "$OSTYPE" == darwin* ]]; then
-  export PATH="$PATH:/opt/nvim-macos-arm64/bin"
-else
-  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-fi
 alias nv="nvim"
 
 # ==============================================================

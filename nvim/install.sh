@@ -12,6 +12,8 @@ rm -r $nvim
 wget https://github.com/neovim/neovim/releases/download/stable/$nvim.tar.gz
 tar -xf $nvim.tar.gz
 rm $nvim.tar.gz
+mkdir -p /usr/local/bin
+ln -sf /opt/$nvim/bin/nvim /usr/local/bin/nvim
 EOF
 
 mkdir -p "$HOME/.config/nvim"
