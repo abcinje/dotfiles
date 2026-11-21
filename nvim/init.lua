@@ -29,6 +29,7 @@ else
   vim.o.splitbelow = true
   vim.o.splitright = true
   vim.o.swapfile = false
+  vim.o.termguicolors = true
   vim.o.whichwrap = "bs<>[]"
 
   vim.opt.clipboard = { "unnamed", "unnamedplus" }

@@ -82,7 +82,6 @@ require("lazy").setup({
       config = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
-        vim.o.termguicolors = true
         require("nvim-tree").setup()
         vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>")
       end,
@@ -124,7 +123,6 @@ require("lazy").setup({
       "akinsho/bufferline.nvim",
       dependencies = "nvim-tree/nvim-web-devicons",
       config = function()
-        vim.o.termguicolors = true
         require("bufferline").setup({ options = { show_buffer_icons = false } })
       end,
     },
@@ -219,5 +217,4 @@ for name, cs in pairs(colorschemes) do
   end
 end
 
-vim.o.termguicolors = true
 vim.cmd.colorscheme(colorscheme)
