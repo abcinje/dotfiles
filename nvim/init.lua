@@ -52,29 +52,20 @@ else
   vim.keymap.set("n", "<C-L>", "<C-W>l")
   vim.keymap.set("n", "<Leader>h", "<Cmd>nohlsearch<CR>")
 
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp" },
-    callback = function()
-      vim.bo.expandtab = false
-      vim.bo.tabstop = 8
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "java", "python", "rust" },
-    callback = function()
-      vim.bo.expandtab = true
-      vim.bo.tabstop = 4
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "sh" },
-    callback = function()
-      vim.bo.expandtab = true
-      vim.bo.tabstop = 2
-    end,
-  })
+  local indent_styles = {
+    { filetypes = { "c", "cpp" }, expandtab = false, tabstop = 8 },
+    { filetypes = { "java", "python", "rust" }, expandtab = true, tabstop = 4 },
+    { filetypes = { "lua", "sh" }, expandtab = true, tabstop = 2 },
+  }
+  for _, style in ipairs(indent_styles) do
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = style.filetypes,
+      callback = function()
+        vim.bo.expandtab = style.expandtab
+        vim.bo.tabstop = style.tabstop
+      end,
+    })
+  end
 
   vim.api.nvim_set_hl(0, "@lsp.type.comment.c", { link = "Normal" })
   vim.api.nvim_create_autocmd("ColorScheme", {
