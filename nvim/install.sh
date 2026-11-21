@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 if [[ "$OSTYPE" == darwin* ]]; then
   nvim="nvim-macos-arm64"
 else
