@@ -15,6 +15,30 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local colorscheme = "space-nvim"
+
+local colorschemes = {
+  ["space-nvim"] = {
+    plugin = { "Th3Whit3Wolf/space-nvim" },
+    on_apply = function()
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      local statusline = vim.api.nvim_get_hl(0, { name = "StatusLine", link = false })
+      vim.api.nvim_set_hl(0, "BufferLineFill", { bg = statusline.bg, fg = statusline.fg })
+    end,
+  },
+  bluloco = {
+    plugin = { "uloco/bluloco.nvim", dependencies = "rktjmp/lush.nvim" },
+  },
+  zenbones = {
+    plugin = { "mcchrish/zenbones.nvim", dependencies = "rktjmp/lush.nvim" },
+  },
+}
+
+local colorscheme_specs = {}
+for _, cs in pairs(colorschemes) do
+  table.insert(colorscheme_specs, vim.tbl_extend("force", cs.plugin, { lazy = true }))
+end
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -22,22 +46,7 @@ require("lazy").setup({
     -- Colorscheme
     -- =========================================================
 
-    {
-      "uloco/bluloco.nvim",
-      dependencies = "rktjmp/lush.nvim",
-      priority = 1000,
-    },
-
-    {
-      "Th3Whit3Wolf/space-nvim",
-      priority = 1000,
-    },
-
-    {
-      "mcchrish/zenbones.nvim",
-      dependencies = "rktjmp/lush.nvim",
-      priority = 1000,
-    },
+    colorscheme_specs,
 
     -- =========================================================
     -- Editing
@@ -100,6 +109,9 @@ require("lazy").setup({
         end)
         vim.keymap.set("n", "<Leader>fr", function()
           builtin.oldfiles({ previewer = false })
+        end)
+        vim.keymap.set("n", "<Leader>fc", function()
+          builtin.colorscheme({ enable_preview = true })
         end)
       end,
     },
@@ -200,8 +212,12 @@ require("lazy").setup({
   },
 })
 
+-- After lazy.setup, so this runs after bufferline's own ColorScheme handler
+for name, cs in pairs(colorschemes) do
+  if cs.on_apply then
+    vim.api.nvim_create_autocmd("ColorScheme", { pattern = name, callback = cs.on_apply })
+  end
+end
+
 vim.o.termguicolors = true
-vim.cmd.colorscheme("space-nvim")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-local statusline = vim.api.nvim_get_hl(0, { name = "StatusLine" })
-vim.api.nvim_set_hl(0, "BufferLineFill", { bg = statusline.bg, fg = statusline.fg })
+vim.cmd.colorscheme(colorscheme)
