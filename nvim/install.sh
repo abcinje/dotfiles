@@ -5,15 +5,22 @@ else
 fi
 
 nvim_root="$HOME/.local/opt"
+url="https://github.com/neovim/neovim/releases/download/stable/$nvim.tar.gz"
 mkdir -p "$nvim_root" "$HOME/.local/bin"
 
-(
-cd "$nvim_root" || exit 1
-rm -r "$nvim"
-wget "https://github.com/neovim/neovim/releases/download/stable/$nvim.tar.gz"
-tar -xf "$nvim.tar.gz"
-rm "$nvim.tar.gz"
-)
+# Download into a temp dir and replace the current version only on success
+tmp=$(mktemp -d "$nvim_root/.nvim-XXXXXX")
+if curl -fL -o "$tmp/$nvim.tar.gz" "$url" \
+  && tar -xf "$tmp/$nvim.tar.gz" -C "$tmp" \
+  && "$tmp/$nvim/bin/nvim" --version >/dev/null; then
+  rm -rf "$nvim_root/$nvim"
+  mv "$tmp/$nvim" "$nvim_root/$nvim"
+  rm -rf "$tmp"
+else
+  rm -rf "$tmp"
+  eecho "  Failed to install nvim. Keeping the current version."
+  return 1
+fi
 ln -sf "$nvim_root/$nvim/bin/nvim" "$HOME/.local/bin/nvim"
 
 mkdir -p "$HOME/.config/nvim"
