@@ -28,6 +28,10 @@ else
 fi
 
 for dir in "${list[@]}"; do
+  if [ ! -f "$dir/install.sh" ]; then
+    echo "Skipping $dir (no install.sh)"
+    continue
+  fi
   echo "Configuring $dir..."
   (source "$dir/install.sh")
 done
