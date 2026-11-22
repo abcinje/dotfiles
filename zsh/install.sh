@@ -1,3 +1,8 @@
+if ! command -v zsh >/dev/null; then
+  eecho "  zsh is not installed. Skipping."
+  return 1
+fi
+
 omz="$HOME/.oh-my-zsh"
 
 if [ ! -d "$omz" ]; then
