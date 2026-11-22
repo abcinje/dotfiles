@@ -6,7 +6,12 @@ fi
 omz="$HOME/.oh-my-zsh"
 
 if [ ! -d "$omz" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  if ! omz_installer=$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) \
+    || ! sh -c "$omz_installer" "" --unattended; then
+    rm -rf "$omz"
+    eecho "  Failed to install oh-my-zsh."
+    return 1
+  fi
   rm "$HOME/.zshrc"
 fi
 
