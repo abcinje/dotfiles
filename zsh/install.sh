@@ -6,7 +6,7 @@ fi
 omz="$HOME/.oh-my-zsh"
 
 if [ ! -d "$omz" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   rm "$HOME/.zshrc"
 fi
 
@@ -16,4 +16,9 @@ link_file "$dotfiles_root/zsh/injae.zsh-theme" "$omz/custom/themes/injae.zsh-the
 if [ ! -d "$omz/custom/plugins/zsh-syntax-highlighting" ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
       "$omz/custom/plugins/zsh-syntax-highlighting"
+fi
+
+if [ "$(basename "$SHELL")" != "zsh" ]; then
+  echo "  Changing the login shell to zsh..."
+  chsh -s "$(command -v zsh)" || eecho "  Failed to change the login shell. Run chsh manually."
 fi
