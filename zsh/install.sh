@@ -1,7 +1,7 @@
 omz="$HOME/.oh-my-zsh"
 
 if [ ! -d "$omz" ]; then
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   rm "$HOME/.zshrc"
 fi
 
