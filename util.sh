@@ -6,27 +6,30 @@ function link_file {
   local src="$1" dst="$2"
 
   if [ ! -e "$src" ]; then
-    eecho "  File \"$src\" does not exists."
-    eecho "  Aborting."
-    return
+    eecho "  \"$src\" does not exist. Skipping."
+    return 1
   fi
 
-  if [ -e "$dst" ]; then
-    echo "  File \"$dst\" already exists!"
-    echo -n "  Do you want to overwrite? [y/n] "
+  if [ "$(readlink "$dst")" = "$src" ]; then
+    return 0
+  fi
 
+  if [ -e "$dst" ] || [ -L "$dst" ]; then
+    local action
     while true; do
-      read action
-      if [ "$action" = "y" ] || [ "$action" = "Y" ]; then
-        rm -rf "$dst"
-        break
-      elif [ "$action" = "n" ] || [ "$action" = "N" ]; then
-        return
-      else
-        echo -n "  Please enter \"y\" or \"n\". [y/n] "
-      fi
+      read -r -p "  \"$dst\" already exists. Overwrite (keeps a backup)? [y/n] " action \
+        || { echo; return 1; }
+      case "$action" in
+        [yY])
+          local backup="$dst.bak.$(date +%Y%m%d%H%M%S)"
+          mv "$dst" "$backup"
+          echo "  Backed up to $backup"
+          break ;;
+        [nN]) return 0 ;;
+      esac
     done
   fi
 
-  ln -sf "$src" "$dst"
+  mkdir -p "$(dirname "$dst")"
+  ln -s "$src" "$dst"
 }

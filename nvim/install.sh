@@ -23,6 +23,5 @@ else
 fi
 ln -sf "$nvim_root/$nvim/bin/nvim" "$HOME/.local/bin/nvim"
 
-mkdir -p "$HOME/.config/nvim"
 link_file "$dotfiles_root/nvim/lua" "$HOME/.config/nvim/lua"
 link_file "$dotfiles_root/nvim/init.lua" "$HOME/.config/nvim/init.lua"
